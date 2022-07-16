@@ -9,6 +9,9 @@ export default function InputForm({ setTodos }) {
       newTodos.push({ id: newTodos.length + 1, item: text, done: false });
       return newTodos;
     });
+    setText(() => {
+      return "";
+    });
   }
   function handleSubmit(e) {
     e.preventDefault();
@@ -23,7 +26,7 @@ export default function InputForm({ setTodos }) {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input type="text" onChange={handleChange}></input>
+        <input type="text" value={text} onChange={handleChange}></input>
         <button type="submit" onClick={addToList}>
           Add to list
         </button>
